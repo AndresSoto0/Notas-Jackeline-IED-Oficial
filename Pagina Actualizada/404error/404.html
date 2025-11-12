@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plataforma - En construcción</title>
+<style>
+    :root{
+      --accent:#ff0033;
+      --bg:#0f0f0f;
+      --muted:#bfbfbf;
+      --text-light:#ffffff;
+      --max-width:1100px;
+    }
+
+    html,body{height:100%; margin:0; font-family:'Poppins',sans-serif; background: linear-gradient(180deg,#0b0b0b 0%, #0f0f0f 100%); color:var(--text-light);}
+    a{text-decoration:none; color:inherit;}
+    img{max-width:100%; display:block;}
+
+    /* HEADER */
+    header.site-header{
+      position:fixed;
+      top:0; left:0; right:0;
+      z-index:1000;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(15,15,15,0.45), rgba(15,15,15,0.20));
+      border-bottom:1px solid rgba(255,255,255,0.03);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      height:72px;
+      padding:0.6rem 2rem;
+    }
+    .brand{
+      font-weight:700;
+      font-size:1.05rem;
+      letter-spacing:0.2px;
+      color:#e50914;
+      transition: color .3s ease;
+    }
+    .brand:hover{ text-shadow:0 0 25px rgba(255,0,0,0.9); }
+    nav.main-nav ul{
+      list-style:none;
+      display:flex;
+      gap:1.2rem;
+      margin:0; padding:0;
+    }
+    nav.main-nav a{
+      font-weight:500;
+      padding:0.35rem 0.6rem;
+      border-radius:6px;
+      transition:all .18s ease;
+    }
+    nav.main-nav a:hover{ color:var(--accent); transform:translateY(-2px); }
+    .btn-login{
+      border:2px solid var(--accent);
+      background:transparent;
+      color:var(--accent);
+      padding:0.45rem 0.85rem;
+      border-radius:10px;
+      font-weight:600;
+      transition:all .2s ease;
+    }
+    .btn-login:hover{ background:var(--accent); color:#fff; }
+
+    .header-spacer{ height:100px; }
+
+    /* MAIN */
+    main{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex-direction:column;
+      text-align:center;
+      padding:2rem 1rem;
+      min-height:70vh;
+    }
+    main h1{
+      font-size:2rem;
+      color:var(--accent);
+      margin-bottom:1rem;
+      text-shadow:0 0 8px rgba(255,0,51,0.6), 0 0 20px rgba(255,0,51,0.4);
+      animation: glow 1.5s infinite alternate;
+    }
+    @keyframes glow{
+      from { text-shadow:0 0 8px rgba(255,0,51,0.6), 0 0 20px rgba(255,0,51,0.4);}
+      to { text-shadow:0 0 15px rgba(255,0,51,0.9), 0 0 35px rgba(255,0,51,0.7);}
+    }
+    main p{
+      color:var(--muted);
+      font-size:1.1rem;
+      margin-bottom:2rem;
+    }
+    main img{
+      width:250px;
+      max-width:60%;
+      opacity:0.85;
+      transition: transform 0.3s ease;
+    }
+    main img:hover{
+      transform: translateY(-10px) scale(1.05);
+    }
+
+    /* BOTÓN ACCENT */
+    .btn-accent{
+      background:var(--accent);
+      color:#fff;
+      padding:0.6rem 1rem;
+      border-radius:10px;
+      font-weight:600;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+    .btn-accent:hover{
+      background:#ff334d;
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    /* FOOTER */
+    footer{
+      margin-top:2rem;
+      padding:1.6rem 0;
+      border-top:1px solid rgba(255,255,255,0.02);
+      text-align:center;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Responsive */
+    @media(max-width:600px){
+      main h1{ font-size:1.6rem; }
+      main p{ font-size:1rem; }
+      main img{ width:180px; }
+      .nav-inner{ padding:0.4rem 1rem; }
+    }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="nav-inner container">
+    <div class="brand">Mi Plataforma</div>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../Inicio/index.html">Inicio</a></li>
+        <li><a href="../Quienes_Somos/quienesomos.html">Quienes Somos</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+    <a href="../login/login.html" class="btn-login">Login</a>
+  </div>
+</header>
+<div class="header-spacer"></div>
+
+<main>
+  <h1>Página en construcción</h1>
+  <p>Esta sección de la plataforma aún no está disponible. Estamos trabajando para traerte lo mejor muy pronto.</p>
+  <img src="https://cdn-icons-png.flaticon.com/512/595/595067.png" alt="404 Error">
+  <a href="#" class="btn-accent" style="margin-top:1.5rem;">Volver al Inicio</a>
+</main>
+
+<footer>
+  &copy; 2025 Mi Plataforma. Todos los derechos reservados.
+</footer>
+</body>
+</html>

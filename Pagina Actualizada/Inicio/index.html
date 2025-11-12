@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Inicio - Colegio Notas Jackeline</title>
+
+  <!-- Fuentes (usa local si ya las tienes, esto es de ejemplo) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --accent:#ff0033;
+      --bg:#0f0f0f;
+      --card:#111;
+      --muted:#bfbfbf;
+      --glass: rgba(255,255,255,0.06);
+      --glass-strong: rgba(15,15,15,0.6);
+      --text-light: #ffffff;
+      --max-width:1100px;
+    }
+    html,body{height:100%;}
+    body{
+      margin:0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg,#0b0b0b 0%, #0f0f0f 100%);
+      color:var(--text-light);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.4;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Container */
+    .container{
+      width:95%;
+      max-width:var(--max-width);
+      margin:0 auto;
+    }
+
+    /* HEADER - semitransparente */
+    header.site-header{
+      position:fixed;
+      left:0;right:0;
+      z-index:1000;
+      top:0;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(15,15,15,0.45), rgba(15,15,15,0.20));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      height:72px;
+      padding:0.6rem 0;
+    }
+.brand{
+  flex:0 0 auto;
+  font-weight:700;
+  font-size:1.05rem;
+  letter-spacing:0.2px;
+  color:#e50914; /* rojo moderno coral */
+  transition:color .3s ease;
+}
+
+.brand:hover{
+ text-shadow:0 0 25px rgba(255,0,0,0.9); /* brillo al pasar el mouse */
+}
+
+    nav.main-nav{
+      flex:1 1 auto;
+      display:flex;
+      justify-content:center;
+    }
+    nav.main-nav ul{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:flex;
+      gap:1.1rem;
+      align-items:center;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    nav.main-nav a{
+      color:rgba(255,255,255,0.9);
+      text-decoration:none;
+      font-weight:500;
+      padding:0.35rem 0.6rem;
+      border-radius:6px;
+      transition:all .18s ease;
+    }
+    nav.main-nav a:hover{
+      color:var(--accent);
+      transform:translateY(-2px);
+    }
+
+    .actions{
+      flex:0 0 auto;
+      display:flex;
+      align-items:center;
+      gap:.6rem;
+    }
+    .btn-login{
+      border:2px solid var(--accent);
+      background:transparent;
+      color:var(--accent);
+      padding:0.45rem 0.85rem;
+      border-radius:10px;
+      font-weight:600;
+      text-decoration:none;
+    }
+    .btn-login:hover{
+      background:var(--accent);
+      color:#fff;
+    }
+
+    /* spacer so content doesn't hide under fixed header */
+    /* === Spacer (to avoid header overlap) === */
+.header-spacer{
+  height: 100px; /* antes 72px */
+}
+    .how-to-use{
+  margin:3rem auto;
+  max-width:var(--max-width);
+  padding:2rem 1rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.how-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:2rem;
+}
+
+.how-text h2{
+  color:var(--accent);
+  margin-bottom:1rem;
+  font-size:1.6rem;
+}
+
+.how-text p{
+  color:var(--muted);
+  line-height:1.6;
+  margin-bottom:1.5rem;
+}
+
+.btn-accent{
+  background:var(--accent);
+  color:#fff;
+  padding:0.6rem 1rem;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:600;
+  transition:background .2s ease;
+}
+
+.btn-accent:hover{
+  background:#ff334d;
+}
+
+.how-image img{
+  width:100%;
+  border-radius:12px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.6);
+}
+
+/* Responsive */
+@media (max-width:900px){
+  .how-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+  .how-text h2{ font-size:1.4rem; }
+}
+
+    /* HERO */
+    .hero{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      min-height:42vh;
+      padding:3.2rem 1rem;
+      background: linear-gradient(180deg, rgba(0,0,0,0.35), rgba(0,0,0,0.55)), url('Inicio/hero.jpg');
+      background-size:cover;
+      background-position:center;
+      position:relative;
+    }
+    .hero .container{
+      max-width:900px;
+    }
+    .hero h1{
+  margin:0;
+  font-size:2.1rem;
+  line-height:1.05;
+  letter-spacing:-0.5px;
+  color:#e50914; /* mismo rojo coral */
+  text-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transition:color .3s ease;
+}
+
+.hero h1:hover{
+ text-shadow:0 0 25px rgba(255,0,0,0.9);
+}
+
+    .hero p{
+      margin-top:1rem;
+      color:var(--muted);
+      font-size:1.02rem;
+    }
+
+    /* CAROUSEL section */
+    .carousel-wrap{
+      display:block;
+      margin:2.2rem auto;
+      width:100%;
+      max-width:var(--max-width);
+      position:relative;
+    }
+    .carousel{
+      overflow:hidden;
+      border-radius:12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      background:#000;
+    }
+    .carousel-track{
+      display:flex;
+      transition:transform 0.6s cubic-bezier(.2,.9,.2,1);
+      will-change:transform;
+    }
+    .carousel-slide{
+      min-width:100%;
+      user-select:none;
+      -webkit-user-drag:none;
+      position:relative;
+      height:600px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background-size:cover;
+      background-position:center;
+    }
+    .carousel-text{
+  position:absolute;
+  bottom:20%;
+  left:50%;
+  transform:translateX(-50%);
+  text-align:center;
+  color:#fff;
+  z-index:5;
+  max-width:80%;
+  padding:1rem 2rem;
+  backdrop-filter: blur(3px);
+}
+
+.title-red{
+  color:#ff002b; /* rojo más fuerte y brillante */
+  font-size:2rem;
+  font-weight:800;
+  text-shadow:0 0 10px rgba(255,0,43,0.6), 0 0 20px rgba(255,0,43,0.4);
+  margin-bottom:0.5rem;
+}
+
+.carousel-text p{
+  color:#fff;
+  font-size:1rem;
+  text-shadow:0 0 6px rgba(0,0,0,0.6);
+  margin:0;
+}
+
+    .carousel-slide .caption{
+      position:absolute;
+      bottom:1rem;
+      left:1rem;
+      right:1rem;
+      color:#fff;
+      text-shadow:0 6px 20px rgba(0,0,0,0.6);
+      font-weight:600;
+    }
+
+    .carousel-controls{
+      position:absolute;
+      top:50%;
+      left:0;right:0;
+      display:flex;
+      justify-content:space-between;
+      transform:translateY(-50%);
+      pointer-events:none;
+    }
+    .carousel-controls button{
+      pointer-events:auto;
+      background: rgba(0,0,0,0.45);
+      border: none;
+      color:#fff;
+      width:44px;height:44px;
+      display:grid;
+      place-items:center;
+      border-radius:8px;
+      margin:0 0.5rem;
+    }
+
+    /* MENU BOX */
+    .menu-grid{
+      margin:2rem auto;
+      max-width:var(--max-width);
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+      gap:1rem;
+    }
+    .menu-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12));
+      border-radius:12px;
+      padding:1rem;
+      min-height:280px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      transition:transform .18s ease, box-shadow .18s ease;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .menu-card:hover{ transform: translateY(-6px); box-shadow: 0 12px 30px rgba(0,0,0,0.6); }
+    .menu-card h4{ margin:0.35rem 0 0; font-size:1.05rem; }
+    .menu-card p{ margin:0.25rem 0 0; color:var(--muted); font-size:.95rem; }
+
+    /* SERVICES */
+    .services{
+      margin:2.2rem auto;
+      max-width:var(--max-width);
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:1.2rem;
+      align-items:start;
+    }
+    .service-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+      padding:1.2rem;
+      border-radius:10px;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .service-card h3{ margin-top:0; }
+    .service-card p{ color:var(--muted); }
+
+    /* CONTACT */
+    .contact{
+      margin:2.2rem auto;
+      max-width:var(--max-width);
+      padding:1.6rem;
+      border-radius:10px;
+      background: linear-gradient(180deg, rgba(15,15,15,0.45), rgba(15,15,15,0.35));
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .contact form{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:0.8rem;
+    }
+    .contact input, .contact textarea{
+      width:100%;
+      padding:0.7rem;
+      border-radius:8px;
+      border:1px solid rgba(255,255,255,0.06);
+      background:transparent;
+      color:var(--text-light);
+    }
+    .contact textarea{ grid-column:1/ -1; min-height:120px; resize:vertical; }
+    .contact .btn{
+      grid-column:1/ -1;
+      justify-self:start;
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:0.6rem 1rem;
+      border-radius:10px;
+      cursor:pointer;
+    }
+    /* --- SECCIÓN NOTICIAS --- */
+.noticias-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.6rem;
+}
+
+.noticia-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.06));
+  padding: 2rem;                /* aumenta el espacio interno */
+  border-radius: 10px;
+  min-height: 260px;            /* <-- controla el alto */
+  border: 1px solid rgba(255,255,255,0.03);
+  transition: transform 0.2s ease;
+}
+
+.noticia-card:hover {
+  transform: translateY(-4px);
+}
+
+.noticia-card h3 {
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+
+.noticia-card p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+    /* FOOTER */
+    footer{
+      margin-top:2.8rem;
+      padding:1.6rem 0;
+      border-top:1px solid rgba(255,255,255,0.02);
+      text-align:center;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .services{ grid-template-columns: 1fr; }
+      .hero h1{ font-size:1.6rem; }
+      .carousel-slide{ height:220px; }
+      nav.main-nav{ display:none; } /* hide big nav on small: you can add a burger if needed */
+      .nav-inner{ justify-content:space-between; padding:0.4rem 0; }
+    }
+    @media (max-width:480px){
+      .brand{ font-size:0.95rem; }
+      .btn-login{ padding:0.35rem 0.6rem; font-size:0.9rem; }
+      .hero{ padding:2rem 0.8rem; }
+      .carousel-slide{ height:180px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container nav-inner">
+      <div class="brand">Notas Jackeline</div>
+
+      <nav class="main-nav" role="navigation" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="../Quienes_Somos/quienesomos.html">Quiénes Somos</a>
+          <li><a href="../404error/404.html">Plataforma</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <a class="btn-login" href="../Login/login.html">Ingresar</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="header-spacer"></div>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero" aria-label="Bienvenida">
+    <div class="container">
+      <h1>Bienvenidos al Colegio Jackeline</h1>
+      <p>Comprometidos con la formación de estudiantes íntegros, críticos y solidarios.</p>
+    </div>
+  </section>
+
+  <!-- CAROUSEL -->
+  <section class="carousel-wrap" aria-label="Galería de imágenes">
+  <div class="carousel container" id="carousel">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide" style="background-image: url(boletin.jpg);">
+        <div class="carousel-text">
+          <h2 class="title-red">Boletines informativos</h2>
+          <p>Consulta las novedades académicas, eventos y comunicados del Colegio Notas Jackeline.</p>
+        </div>
+      </div>
+      <div class="carousel-slide" style="background-image: url(colegio.jpg);">
+        <div class="carousel-text">
+          <h2 class="title-red">Vida estudiantil</h2>
+          <p>Fomentamos la creatividad, el respeto y la excelencia en cada estudiante.</p>
+        </div>
+      </div>
+      <div class="carousel-slide" style="background-image: url(grado.jpg);">
+        <div class="carousel-text">
+          <h2 class="title-red">Momentos especiales</h2>
+          <p>Celebra con nosotros los logros y avances de nuestra comunidad educativa.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="carousel-controls" aria-hidden="false">
+      <div style="display:flex; justify-content:space-between; width:100%;">
+        <button id="prevBtn" aria-label="Anterior">&larr;</button>
+        <button id="nextBtn" aria-label="Siguiente">&rarr;</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- MENU/OPTIONS BOX -->
+  <section class="container menu-grid" aria-label="Opciones">
+    <article class="menu-card">
+      <div class="icon">📚</div>
+      <h4>Académico</h4>
+      <p>Información de cursos y asignaturas.</p>
+    </article>
+    <article class="menu-card">
+      <div class="icon">🧑‍🏫</div>
+      <h4>Docentes</h4>
+      <p>Conoce a nuestro equipo académico.</p>
+    </article>
+    <article class="menu-card">
+      <div class="icon">🖥️</div>
+      <h4>Plataforma</h4>
+      <p>Acceso a la plataforma educativa.</p>
+    </article>
+    <article class="menu-card">
+      <div class="icon">📅</div>
+      <h4>Eventos</h4>
+      <p>Actividades y calendario escolar.</p>
+    </article>
+  </section>
+<section class="how-to-use">
+  <div class="container how-grid">
+    <div class="how-text">
+      <h2>¿No sabes cómo utilizar nuestra página?</h2>
+      <p>
+        En esta sección te mostraremos paso a paso cómo navegar por nuestro sitio,
+        acceder a la plataforma educativa, revisar boletines y mucho más.
+        ¡Conoce todas las funciones disponibles para estudiantes y padres!
+      </p>
+      <a href="../404error/404.html" class="btn-accent">Aprender a usar la página</a>
+    </div>
+    <div class="how-image">
+      <img src="cap1.png" alt="Guía de uso de la página" />
+    </div>
+  </div>
+</section>
+<section id="noticias" class="container">
+  <div class="noticias-grid">
+    <div class="noticia-card">
+      <h3>Finalización del período académico 2025</h3>
+      <p>El Colegio Notas Jackeline informa que el período académico ha concluido con éxito.
+Felicitamos a nuestros estudiantes por su esfuerzo y agradecemos a las familias por su apoyo constante.
+
+Pronto se publicarán las fechas de entrega de boletines.
+¡Felices vacaciones y nos vemos el próximo año!</p>
+    </div>
+    <div class="noticia-card">
+      <h3>Comunicados</h3>
+      <p>El Colegio Notas Jackeline invita a la comunidad educativa a la celebración de “El Último Timbre”, este viernes, con motivo del cierre del año escolar del grado 11-02.
+
+Será un espacio de despedida, recuerdos y alegría por esta etapa que culmina.
+¡Felicitaciones a nuestros futuros egresados!</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- CONTACT -->
+  <section id="contacto" class="contact" aria-label="Contáctanos">
+    <div class="container">
+      <h3>Contáctanos</h3>
+      <form id="contactForm" novalidate>
+        <input type="text" name="nombre" placeholder="Tu nombre" required />
+        <input type="email" name="email" placeholder="Tu correo" required />
+        <textarea name="mensaje" placeholder="Tu mensaje..." required></textarea>
+        <button class="btn" type="submit">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Colegio Notas Jackeline — Todos los derechos reservados
+  </footer>
+
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* Simple accessible carousel (vanilla JS)
+       Uses the three slides already in DOM.
+    */
+    (function(){
+      const track = document.getElementById('carouselTrack');
+      const slides = Array.from(track.children);
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+      let idx = 0;
+      let autoplay = true;
+      let interval = null;
+
+      function goTo(i){
+        idx = (i + slides.length) % slides.length;
+        track.style.transform = 'translateX(' + (-idx * 100) + '%)';
+      }
+      function next(){ goTo(idx+1); }
+      function prev(){ goTo(idx-1); }
+
+      nextBtn.addEventListener('click', ()=>{ next(); resetAuto(); });
+      prevBtn.addEventListener('click', ()=>{ prev(); resetAuto(); });
+
+      // autoplay
+      function startAuto(){
+        if(interval) clearInterval(interval);
+        interval = setInterval(()=> { if(autoplay) next(); }, 4000);
+      }
+      function resetAuto(){
+        autoplay = false;
+        clearInterval(interval);
+        setTimeout(()=> { autoplay = true; startAuto(); }, 6000);
+      }
+      startAuto();
+
+      // keyboard
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowLeft') prev();
+        if(e.key === 'ArrowRight') next();
+      });
+
+      // make carousel images show alt text as aria-label on slide for screen readers
+      slides.forEach((s,i)=> {
+        const cap = s.querySelector('.caption');
+        if(cap) s.setAttribute('role','img'), s.setAttribute('aria-label', cap.textContent || ('slide '+(i+1)));
+      });
+    })();
+
+    // Contact form simple handler (no external network)
+    (function(){
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        // simple validation
+        const f = new FormData(form);
+        const name = f.get('nombre')?.trim();
+        const email = f.get('email')?.trim();
+        const msg = f.get('mensaje')?.trim();
+        if(!name || !email || !msg){
+          alert('Por favor completa todos los campos.');
+          return;
+        }
+        // Simular envío / mostrar agradecimiento
+        alert('Gracias, ' + name + '. Su mensaje ha sido recibido (simulado).');
+        form.reset();
+      });
+    })();
+
+    // Smooth scroll for internal links
+    (function(){
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', function(e){
+          const tar = this.getAttribute('href');
+          if(tar.length>1){
+            e.preventDefault();
+            const el = document.querySelector(tar);
+            if(el){
+              const top = el.getBoundingClientRect().top + window.scrollY - 72; // header offset
+              window.scrollTo({top, behavior:'smooth'});
+            }
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

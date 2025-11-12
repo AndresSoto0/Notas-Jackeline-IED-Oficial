@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notas Jackeline IED - Inicio de Sesión</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <header class="site-header">
+  <div class="container nav-inner">
+    <div class="brand">Notas Jackeline</div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="../inicio/index.html">Inicio</a></li>
+        <li><a href="../Quienes_Somos/quienesomos.html">Quiénes Somos</a></li>
+        <li><a href="../404error/404.html">Plataforma</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="actions">
+      <a href="login.html" class="btn-login">Ingresar</a>
+    </div>
+  </div>
+</header>
+<div class="header-spacer"></div>
+
+
+  <!-- Contenido principal -->
+  <main class="flex flex-col items-center justify-center flex-1 p-4">
+    <!-- Login principal -->
+    <div id="main-login" class="login-container w-full max-w-md p-6 rounded-xl shadow-lg" style="box-shadow: 0 0 30px #ff003355;">
+      <div class="text-center logo-animation mb-4">
+        <i class="fas fa-graduation-cap text-4xl mb-2" style="color:#ff0033; text-shadow:0 0 15px #ff0033aa;"></i>
+        <h1 class="text-xl font-bold" style="color:#fff;">Notas Jackeline IED</h1>
+        <p style="color:#fff; opacity:0.8;">Sistema de gestión académica</p>
+      </div>
+      
+      <form class="space-y-3 form-animation">
+        <div>
+          <label class="block font-medium mb-1" style="color:#fff;">Usuario</label>
+          <input type="text" placeholder="Ingresa tu usuario" class="input-field w-full p-2 rounded-lg focus:outline-none">
+          <p class="error-message">El usuario es obligatorio</p>
+        </div>
+        <div>
+          <label class="block font-medium mb-1" style="color:#fff;">Contraseña</label>
+          <input type="password" placeholder="••••••••" class="input-field w-full p-2 rounded-lg focus:outline-none">
+          <p class="error-message">La contraseña es obligatoria</p>
+        </div>
+        <div class="flex items-center">
+          <label class="flex items-center space-x-2">
+            <input type="checkbox" class="checkbox-custom">
+            <span style="color:#fff; opacity:0.8;">Recuérdame</span>
+          </label>
+        </div>
+        <button type="submit" class="btn-primary w-full py-2 rounded-lg font-medium">Ingresar</button>
+      </form>
+
+      <div class="mt-3 text-center">
+        <div class="mt-2 text-sm rounded-lg p-2" style="background:#222; color:#ffffff; border:1px solid #ff0033; display:inline-block;">
+          Los usuarios son creados únicamente por la institución.<br>
+          Si deseas ingresar, consulta a tu tutor o coordinador académico para obtener tus credenciales.
+        </div>
+        <a href="#" id="open-forgot" class="text-sm font-medium link-hover block mt-3">¿Olvidaste tu contraseña?</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Recuperar contraseña -->
+  <div id="forgot-modal" class="modal hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center">
+    <div class="login-container w-full max-w-sm p-6 rounded-xl relative" style="background:#181818; border:2px solid #ff0033; box-shadow:0 0 20px #ff003355;">
+      <button class="close-modal absolute top-3 right-3 text-xl" style="color:#ff0033;">&times;</button>
+      <h2 class="text-lg font-bold mb-4" style="color:#fff;">Recuperar contraseña</h2>
+      <form id="recover-form" class="space-y-3">
+        <!-- Paso 1: Código de acceso -->
+        <div id="step-code">
+          <label class="block font-medium mb-1" style="color:#fff;">Código de acceso</label>
+          <div style="position:relative;">
+            <input type="password" id="access-code" placeholder="Código de acceso" class="input-field w-full p-2 rounded-lg focus:outline-none" required>
+            <button type="button" class="toggle-password" data-target="access-code" tabindex="-1" style="position:absolute;right:10px;top:8px;color:#ff0033;">👁️</button>
+          </div>
+          <button type="button" id="verify-code-btn" class="btn-primary w-full py-2 rounded-lg font-medium mt-2">Verificar código</button>
+        </div>
+        <!-- Paso 2: Cambiar contraseña -->
+        <div id="step-password" style="display:none;">
+          <div>
+            <label class="block font-medium mb-1" style="color:#fff;">Nueva contraseña</label>
+            <div style="position:relative;">
+              <input type="password" id="new-password" placeholder="Nueva contraseña" class="input-field w-full p-2 rounded-lg focus:outline-none" required>
+              <button type="button" class="toggle-password" data-target="new-password" tabindex="-1" style="position:absolute;right:10px;top:8px;color:#ff0033;">👁️</button>
+            </div>
+            <ul class="text-xs mt-2" style="color:#fff;opacity:0.8;">
+              <li id="rule-length" style="color:#fff;">• Mínimo 5 caracteres</li>
+              <li id="rule-number" style="color:#fff;">• Al menos 1 número</li>
+              <li id="rule-special" style="color:#fff;">• Al menos 1 carácter especial</li>
+            </ul>
+          </div>
+          <div>
+            <label class="block font-medium mb-1" style="color:#fff;">Verificar contraseña</label>
+            <div style="position:relative;">
+              <input type="password" id="confirm-password" placeholder="Repite la nueva contraseña" class="input-field w-full p-2 rounded-lg focus:outline-none" required>
+              <button type="button" class="toggle-password" data-target="confirm-password" tabindex="-1" style="position:absolute;right:10px;top:8px;color:#ff0033;">👁️</button>
+            </div>
+          </div>
+          <button type="submit" class="btn-primary w-full py-2 rounded-lg font-medium mt-2">Restablecer</button>
+        </div>
+        <div id="forgot-error" style="color:red;margin-top:10px;"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>© 2025 Notas Jackeline IED - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="login.js"></script>
+</body>
+</html>
+
+
